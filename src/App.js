@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import MovieSearch from './comp/moviesearch';
+import { Route, Routes } from 'react-router-dom';
+import Errorpage from './comp/errorpage';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Deatilpage from './comp/deatilpage';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    
+
+      <Routes>
+        <Route path="/"      element={<MovieSearch /> } />
+        <Route path="/details/:id"   element={<Deatilpage />} />
+        <Route path="*"      element={<Errorpage /> } />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
